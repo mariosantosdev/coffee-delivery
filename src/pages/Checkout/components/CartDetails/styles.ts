@@ -4,6 +4,7 @@ export const CartDetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
 `;
 
 export const TitleCartDetails = styled.h2`
