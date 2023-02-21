@@ -33,15 +33,15 @@ export const LocationButton = styled(BaseButton)`
   cursor: default;
 
   gap: 0.25rem;
-  background: ${({ theme }) => theme.colors.brand.brand_purple_light};
-  color: ${({ theme }) => theme.colors.brand.brand_purple_dark};
+  background: ${({ theme }) => theme.colors.brand_purple_light};
+  color: ${({ theme }) => theme.colors.brand_purple_dark};
 
   svg {
-    color: ${({ theme }) => theme.colors.brand.brand_purple};
+    color: ${({ theme }) => theme.colors.brand_purple};
   }
 `;
 
 export const CartButton = styled(BaseButton)`
-  background: ${({ theme }) => theme.colors.brand.brand_yellow_light};
-  color: ${({ theme }) => theme.colors.brand.brand_yellow_dark};
+  background: ${({ theme }) => theme.colors.brand_yellow_light};
+  color: ${({ theme }) => theme.colors.brand_yellow_dark};
 `;
