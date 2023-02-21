@@ -1,4 +1,5 @@
 import { useCart } from "~/context/CartContext";
+import { formatPrice } from "~/utils/format";
 import { CoffeCardItem } from "../CoffeCardItem";
 import {
   CoffeCardContainer,
@@ -44,11 +45,7 @@ export const CoffeCard: React.FC<CoffeCardProps> = ({ coffe }) => {
       <CoffeCardFooter>
         <CoffeCardPrice>
           <span>R$ </span>
-          {Intl.NumberFormat("pt-br", {
-            currency: "brl",
-            style: "decimal",
-            minimumFractionDigits: 2,
-          }).format(coffe.price)}
+          {formatPrice(coffe.price).split("R$")[1]}
         </CoffeCardPrice>
 
         <CoffeCardItem
