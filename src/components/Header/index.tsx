@@ -10,10 +10,12 @@ import {
 export const Header = () => {
   return (
     <HeaderContainer>
-      <img
-        src="/logo.svg"
-        alt="Copo de café na cor roxa representando a logo do Coffee Delivery"
-      />
+      <NavLink to="/">
+        <img
+          src="/logo.svg"
+          alt="Copo de café na cor roxa representando a logo do Coffee Delivery"
+        />
+      </NavLink>
 
       <HeaderNav>
         <LocationButton>
