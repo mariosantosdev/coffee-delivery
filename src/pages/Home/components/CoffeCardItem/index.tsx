@@ -1,13 +1,8 @@
-import { Minus, Plus, ShoppingCart } from "phosphor-react";
+import { ShoppingCart } from "phosphor-react";
 import { NavLink } from "react-router-dom";
+import { ItemQuantity } from "~/components/ItemQuantity";
 
-import {
-  CoffeCardItemContainer,
-  CoffeCardCartButton,
-  CoffeCardItemQuantity,
-  CoffeCardItemQuantityButton,
-  CoffeCardItemQuantityValue,
-} from "./styles";
+import { CoffeCardItemContainer, CoffeCardCartButton } from "./styles";
 
 interface CoffeCardItemProps {
   quantity: number;
@@ -15,24 +10,10 @@ interface CoffeCardItemProps {
   onDecrement: () => void;
 }
 
-export const CoffeCardItem: React.FC<CoffeCardItemProps> = ({
-  quantity,
-  onIncrement,
-  onDecrement,
-}) => {
+export const CoffeCardItem: React.FC<CoffeCardItemProps> = (props) => {
   return (
     <CoffeCardItemContainer>
-      <CoffeCardItemQuantity>
-        <CoffeCardItemQuantityButton onClick={onDecrement}>
-          <Minus weight="bold" />
-        </CoffeCardItemQuantityButton>
-
-        <CoffeCardItemQuantityValue>{quantity}</CoffeCardItemQuantityValue>
-
-        <CoffeCardItemQuantityButton onClick={onIncrement}>
-          <Plus weight="bold" />
-        </CoffeCardItemQuantityButton>
-      </CoffeCardItemQuantity>
+      <ItemQuantity {...props} />
 
       <CoffeCardCartButton as={NavLink} to="/checkout">
         <ShoppingCart weight="fill" />

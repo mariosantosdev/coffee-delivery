@@ -6,34 +6,6 @@ export const CoffeCardItemContainer = styled.div`
   gap: 0.25rem;
 `;
 
-export const CoffeCardItemQuantity = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  gap: 0.5rem;
-  border-radius: 6px;
-  padding: 0.25rem;
-  background-color: ${({ theme }) => theme.colors.base_button};
-`;
-
-export const CoffeCardItemQuantityButton = styled.button`
-  cursor: pointer;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border: none;
-  background: transparent;
-  color: ${({ theme }) => theme.colors.brand_purple};
-`;
-
-export const CoffeCardItemQuantityValue = styled.span`
-  color: ${({ theme }) => theme.colors.base_title};
-`;
-
 export const CoffeCardCartButton = styled.button`
   cursor: pointer;
 
