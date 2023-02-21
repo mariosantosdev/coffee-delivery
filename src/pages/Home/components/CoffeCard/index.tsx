@@ -26,7 +26,7 @@ export interface CoffeCardProps {
 }
 
 export const CoffeCard: React.FC<CoffeCardProps> = ({ coffe }) => {
-  const { getQuantity, addItem, removeItem } = useCart();
+  const { getQuantity, addItem, decreaseItem } = useCart();
 
   return (
     <CoffeCardContainer>
@@ -50,7 +50,7 @@ export const CoffeCard: React.FC<CoffeCardProps> = ({ coffe }) => {
 
         <CoffeCardItem
           onIncrement={() => addItem(coffe)}
-          onDecrement={() => removeItem(coffe)}
+          onDecrement={() => decreaseItem(coffe)}
           quantity={getQuantity(coffe)}
         />
       </CoffeCardFooter>

@@ -8,6 +8,7 @@ export type CartState = {
     }
   >;
   total: number;
+  priceTotalItems: number;
   shipping: number;
   paymentMethod: "credit" | "debit" | "cash";
   address: {
@@ -41,11 +42,19 @@ export const cartReducer = (state: CartState, action: CartAction) => {
         draft.items.push({ ...action.payload, quantity: 1 });
       });
 
-    case "REMOVE_ITEM":
+    case "DECREASE_ITEM":
       return produce(state, (draft) => {
         const item = draft.items.find((i) => i.id === action.payload.id);
         if (!item) return draft;
         if (item?.quantity - 1 >= 0) item.quantity--;
+      });
+
+    case "REMOVE_ITEM":
+      return produce(state, (draft) => {
+        const itemIndex = draft.items.findIndex(
+          (i) => i.id === action.payload.id
+        );
+        if (itemIndex >= 0) draft.items.splice(itemIndex, 1);
       });
 
     case "CLEAR_CART":

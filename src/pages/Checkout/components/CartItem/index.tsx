@@ -23,7 +23,7 @@ interface CartItemProps {
 }
 
 export const CartItem: React.FC<CartItemProps> = ({ item }) => {
-  const { addItem, removeItem } = useCart();
+  const { addItem, removeItem, decreaseItem } = useCart();
 
   return (
     <CartItemContainer>
@@ -36,10 +36,10 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
           <ItemQuantity
             quantity={item.quantity}
             onIncrement={() => addItem(item)}
-            onDecrement={() => removeItem(item)}
+            onDecrement={() => decreaseItem(item)}
           />
 
-          <ButtonRemoveItem>
+          <ButtonRemoveItem onClick={() => removeItem(item)}>
             <Trash />
             Remover
           </ButtonRemoveItem>
