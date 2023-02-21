@@ -1,3 +1,5 @@
+import { HomeHero } from "./components/Hero";
+
 export function HomePage() {
-  return <h1>Hello World</h1>;
+  return <HomeHero />;
 }
