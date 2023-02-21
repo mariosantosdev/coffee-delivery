@@ -21,7 +21,9 @@
       "~/styles/*": ["src/styles/*"],
       "~/components/*": ["src/components/*"],
       "~/pages/*": ["src/pages/*"],
-      "~/layouts/*": ["src/layouts/*"]
+      "~/layouts/*": ["src/layouts/*"],
+      "~/contexts/*": ["src/contexts/*"],
+      "~/reducers/*": ["src/reducers/*"]
     }
   },
   "include": ["src"],
