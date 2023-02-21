@@ -29,6 +29,13 @@ export const CartItemsList = styled.ul`
   flex-direction: column;
 
   gap: 1.5rem;
+
+  .empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const CartDetailsFooter = styled.div`
@@ -69,7 +76,12 @@ export const CartConfirmButton = styled.button`
   text-transform: uppercase;
   margin-top: 1.5rem;
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: ${({ theme }) => theme.colors.brand_yellow_dark};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
   }
 `;

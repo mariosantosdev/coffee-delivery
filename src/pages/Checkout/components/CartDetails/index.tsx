@@ -15,6 +15,8 @@ import {
 export const CartDetails = () => {
   const { cart } = useCart();
 
+  const disabledConfirmButton = cart.items.length === 0;
+
   return (
     <CartDetailsContainer>
       <TitleCartDetails>Cafés selecionados</TitleCartDetails>
@@ -24,6 +26,10 @@ export const CartDetails = () => {
           {cart.items.map((item) => (
             <CartItem key={item.id} item={item} />
           ))}
+
+          {cart.items.length === 0 && (
+            <p className="empty-cart">Nenhum item adicionado ao carrinho</p>
+          )}
         </CartItemsList>
 
         <CartDetailsFooter>
@@ -42,7 +48,9 @@ export const CartDetails = () => {
             <span>{formatPrice(cart.total)}</span>
           </CartDetailsPrice>
 
-          <CartConfirmButton>Confirmar Pedido</CartConfirmButton>
+          <CartConfirmButton disabled={disabledConfirmButton}>
+            Confirmar Pedido
+          </CartConfirmButton>
         </CartDetailsFooter>
       </CartDetailsContent>
     </CartDetailsContainer>
