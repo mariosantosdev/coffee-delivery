@@ -10,20 +10,26 @@ import {
 } from "./styles";
 
 interface CoffeCardItemProps {
-  slug: string;
+  quantity: number;
+  onIncrement: () => void;
+  onDecrement: () => void;
 }
 
-export const CoffeCardItem: React.FC<CoffeCardItemProps> = ({ slug }) => {
+export const CoffeCardItem: React.FC<CoffeCardItemProps> = ({
+  quantity,
+  onIncrement,
+  onDecrement,
+}) => {
   return (
     <CoffeCardItemContainer>
       <CoffeCardItemQuantity>
-        <CoffeCardItemQuantityButton>
+        <CoffeCardItemQuantityButton onClick={onDecrement}>
           <Minus weight="bold" />
         </CoffeCardItemQuantityButton>
 
-        <CoffeCardItemQuantityValue>1</CoffeCardItemQuantityValue>
+        <CoffeCardItemQuantityValue>{quantity}</CoffeCardItemQuantityValue>
 
-        <CoffeCardItemQuantityButton>
+        <CoffeCardItemQuantityButton onClick={onIncrement}>
           <Plus weight="bold" />
         </CoffeCardItemQuantityButton>
       </CoffeCardItemQuantity>

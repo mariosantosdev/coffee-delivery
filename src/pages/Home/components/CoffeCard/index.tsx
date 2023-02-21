@@ -1,3 +1,4 @@
+import { useCart } from "~/context/CartContext";
 import { CoffeCardItem } from "../CoffeCardItem";
 import {
   CoffeCardContainer,
@@ -24,6 +25,8 @@ export interface CoffeCardProps {
 }
 
 export const CoffeCard: React.FC<CoffeCardProps> = ({ coffe }) => {
+  const { getQuantity, addItem, removeItem } = useCart();
+
   return (
     <CoffeCardContainer>
       <img src={coffe.image} alt={coffe.description} />
@@ -48,7 +51,11 @@ export const CoffeCard: React.FC<CoffeCardProps> = ({ coffe }) => {
           }).format(coffe.price)}
         </CoffeCardPrice>
 
-        <CoffeCardItem slug={coffe.slug} />
+        <CoffeCardItem
+          onIncrement={() => addItem(coffe)}
+          onDecrement={() => removeItem(coffe)}
+          quantity={getQuantity(coffe)}
+        />
       </CoffeCardFooter>
     </CoffeCardContainer>
   );
