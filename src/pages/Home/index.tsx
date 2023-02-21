@@ -16,7 +16,7 @@ export function HomePage() {
     <Fragment>
       <HomeHero />
       <CoffeContainer>
-        <h2>Nossos cafés</h2>
+        <h2 className="container-title">Nossos cafés</h2>
         <GridCoffees>
           {coffes.map((coffe) => (
             <CoffeCard key={coffe.slug} coffe={coffe} />

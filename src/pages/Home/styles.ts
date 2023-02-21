@@ -5,7 +5,7 @@ export const CoffeContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  h2 {
+  .container-title {
     color: ${({ theme }) => theme.colors.base_subtitle};
     font-size: 2rem;
     font-family: "Baloo 2", cursive;
