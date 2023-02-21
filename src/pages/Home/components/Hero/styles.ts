@@ -2,42 +2,92 @@ import styled from "styled-components";
 
 export const HeroContainer = styled.section`
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
 
   align-items: center;
-  justify-content: space-between;
-  min-height: 544px;
+  justify-content: center;
+
+  img {
+    width: 16rem;
+  }
+
+  @media (min-width: 48em) {
+    img {
+      width: 20rem;
+    }
+  }
+
+  @media (min-width: 62em) {
+    flex-direction: row;
+
+    justify-content: space-between;
+    min-height: 544px;
+
+    img {
+      width: 32rem;
+    }
+  }
 `;
 
 export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
 
-  align-items: flex-start;
-  max-width: 54%;
+  align-items: center;
+
+  @media (min-width: 62em) {
+    align-items: flex-start;
+
+    max-width: 54%;
+  }
 `;
 
 export const HeroTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-family: "Baloo 2", cursive;
   font-weight: 800;
   line-height: 120%;
   color: ${({ theme }) => theme.colors.base_title};
+  text-align: center;
+
+  @media (min-width: 48em) {
+    font-size: 2rem;
+  }
+
+  @media (min-width: 62em) {
+    font-size: 3rem;
+    text-align: start;
+  }
 `;
 
 export const HeroSubtitle = styled.h2`
-  margin-top: 1rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  text-align: center;
   color: ${({ theme }) => theme.colors.base_subtitle};
+
+  @media (min-width: 48em) {
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: 62em) {
+    text-align: start;
+  }
 `;
 
 export const HeroListItems = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-items: start;
 
-  grid-gap: 1rem;
-  margin-top: 4rem;
+  grid-gap: 0.5rem;
+  margin-top: 2rem;
+
+  @media (min-width: 48em) {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 4rem;
+  }
 `;
 
 enum HeroItemColors {

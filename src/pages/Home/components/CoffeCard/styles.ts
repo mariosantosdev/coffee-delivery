@@ -18,7 +18,7 @@ export const CoffeCardContainer = styled.div`
   img {
     width: 6rem;
     height: 6rem;
-    margin-top: -16%;
+    margin-top: -2.25rem;
     object-fit: cover;
   }
 `;
