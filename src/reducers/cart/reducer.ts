@@ -35,11 +35,23 @@ export const cartReducer = (state: CartState, action: CartAction) => {
         return produce(state, (draft) => {
           const item = draft.items.find((i) => i.id === action.payload.id);
           if (item) item.quantity++;
+
+          draft.priceTotalItems = draft.items.reduce((acc, item) => {
+            return acc + item.price * item.quantity;
+          }, 0);
+
+          draft.total = draft.priceTotalItems + draft.shipping;
         });
       }
 
       return produce(state, (draft) => {
         draft.items.push({ ...action.payload, quantity: 1 });
+
+        draft.priceTotalItems = draft.items.reduce((acc, item) => {
+          return acc + item.price * item.quantity;
+        }, 0);
+
+        draft.total = draft.priceTotalItems + draft.shipping;
       });
 
     case "DECREASE_ITEM":
@@ -47,6 +59,12 @@ export const cartReducer = (state: CartState, action: CartAction) => {
         const item = draft.items.find((i) => i.id === action.payload.id);
         if (!item) return draft;
         if (item?.quantity - 1 >= 0) item.quantity--;
+
+        draft.priceTotalItems = draft.items.reduce((acc, item) => {
+          return acc + item.price * item.quantity;
+        }, 0);
+
+        draft.total = draft.priceTotalItems + draft.shipping;
       });
 
     case "REMOVE_ITEM":
@@ -55,10 +73,16 @@ export const cartReducer = (state: CartState, action: CartAction) => {
           (i) => i.id === action.payload.id
         );
         if (itemIndex >= 0) draft.items.splice(itemIndex, 1);
+
+        draft.priceTotalItems = draft.items.reduce((acc, item) => {
+          return acc + item.price * item.quantity;
+        }, 0);
+
+        draft.total = draft.priceTotalItems + draft.shipping;
       });
 
     case "CLEAR_CART":
-      return { ...state, items: [] };
+      return { ...state, items: [], total: 0, priceTotalItems: 0 };
 
     default:
       return state;
