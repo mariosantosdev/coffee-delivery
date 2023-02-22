@@ -59,7 +59,15 @@ export const cartReducer = (state: CartState, action: CartAction) => {
       return produce(state, (draft) => {
         const item = draft.items.find((i) => i.id === action.payload.id);
         if (!item) return draft;
-        if (item?.quantity - 1 >= 0) item.quantity--;
+        if (item?.quantity - 1 > 0) {
+          item.quantity--;
+        } else if (item?.quantity - 1 === 0) {
+          item.quantity--;
+          const itemIndex = draft.items.findIndex(
+            (i) => i.id === action.payload.id
+          );
+          if (itemIndex >= 0) draft.items.splice(itemIndex, 1);
+        }
 
         draft.priceTotalItems = draft.items.reduce((acc, item) => {
           return acc + item.price * item.quantity;
