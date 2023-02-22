@@ -41,7 +41,30 @@ export const LocationButton = styled(BaseButton)`
   }
 `;
 
-export const CartButton = styled(BaseButton)`
+type CartButtonProps = {
+  items?: number;
+  hasItems?: boolean;
+};
+
+export const CartButton = styled(BaseButton)<CartButtonProps>`
+  position: relative;
   background: ${({ theme }) => theme.colors.brand_yellow_light};
   color: ${({ theme }) => theme.colors.brand_yellow_dark};
+
+  ::after {
+    content: "${({ items }) => items}";
+    display: ${({ hasItems }) => (hasItems ? "flex" : "none")};
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background-color: ${({ theme }) => theme.colors.brand_yellow_dark};
+    color: ${({ theme }) => theme.colors.base_white};
+    padding: 0.15rem;
+    min-width: 1rem;
+    min-height: 1rem;
+    border-radius: 100%;
+  }
 `;

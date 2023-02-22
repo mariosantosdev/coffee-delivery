@@ -1,5 +1,6 @@
 import { MapPin, ShoppingCart } from "phosphor-react";
 import { NavLink } from "react-router-dom";
+import { useCart } from "~/context/CartContext";
 import {
   CartButton,
   HeaderContainer,
@@ -8,6 +9,8 @@ import {
 } from "./styles";
 
 export const Header = () => {
+  const { cart } = useCart();
+
   return (
     <HeaderContainer>
       <NavLink to="/">
@@ -22,7 +25,12 @@ export const Header = () => {
           <MapPin size={22} weight="fill" />
           Oliveira, MG
         </LocationButton>
-        <CartButton as={NavLink} to="/checkout">
+        <CartButton
+          as={NavLink}
+          to="/checkout"
+          items={cart.items.length}
+          hasItems={cart.items.length !== 0}
+        >
           <ShoppingCart size={22} weight="fill" />
         </CartButton>
       </HeaderNav>
