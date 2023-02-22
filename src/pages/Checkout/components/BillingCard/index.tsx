@@ -40,6 +40,7 @@ export const BillingCard = () => {
             id="street"
             type="text"
             placeholder="Rua"
+            autoComplete="street-address"
             {...register("street")}
           />
         </TextInput>
@@ -58,6 +59,7 @@ export const BillingCard = () => {
             id="neighborhood"
             type="text"
             placeholder="Bairro"
+            autoComplete="street-address"
             {...register("neighborhood")}
           />
         </TextInput>
@@ -67,6 +69,7 @@ export const BillingCard = () => {
             id="postalCode"
             type="text"
             placeholder="CEP"
+            autoComplete="postal-code"
             {...register("postalCode")}
           />
         </TextInput>
@@ -76,6 +79,7 @@ export const BillingCard = () => {
             id="city"
             type="text"
             placeholder="Cidade"
+            autoComplete="street-address"
             {...register("city")}
           />
         </TextInput>
@@ -85,6 +89,7 @@ export const BillingCard = () => {
             id="state"
             type="text"
             placeholder="UF"
+            autoComplete="street-address"
             {...register("state")}
           />
         </TextInput>
@@ -94,6 +99,7 @@ export const BillingCard = () => {
             id="complement"
             type="text"
             placeholder="Complemento"
+            autoComplete="street-address"
             {...register("complement")}
           />
         </TextInput>
