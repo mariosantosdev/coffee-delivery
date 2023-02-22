@@ -48,7 +48,7 @@ export const CartDetails = () => {
             <span>{formatPrice(cart.total)}</span>
           </CartDetailsPrice>
 
-          <CartConfirmButton disabled={disabledConfirmButton}>
+          <CartConfirmButton type="submit" disabled={disabledConfirmButton}>
             Confirmar Pedido
           </CartConfirmButton>
         </CartDetailsFooter>
