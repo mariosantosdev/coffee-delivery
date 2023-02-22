@@ -7,7 +7,7 @@ This project was built in **9hrs and 18mins** following the <a href="https://www
 
 ## About Project
 
-This project is an simple ecommerce that the user can view and buy coffees, all coffees comes from <a href="https://github.com/egoist/vite-plugin-mix">ViteJS Mix Plugin</a> that serves an local server.
+This project is an simple ecommerce that the user can view and buy coffees, all coffees comes from <a href="https://vitejs.dev/guide/cli.html#dev-server">ViteJS Server</a> that serves an local server.
 
 The project was developed to finish an challenge steps of the course <a href="https://www.rocketseat.com.br/ignite">Ignite</a>. I started from zero, just following the <a href="https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate">mockup</a> already created.
 
