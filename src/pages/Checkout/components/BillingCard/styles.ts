@@ -75,7 +75,12 @@ type InputProps = {
   isOptional?: boolean;
 };
 
-export const TextInput = styled.input<InputProps>`
+export const TextInput = styled.label<InputProps>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
   border: 1px solid ${({ theme }) => theme.colors.base_button};
   background-color: ${({ theme }) => theme.colors.base_input};
   padding: 0.75rem;
@@ -83,14 +88,25 @@ export const TextInput = styled.input<InputProps>`
   grid-area: ${({ gridArea }) => gridArea};
 
   border-radius: 4px;
-  ::placeholder {
-    color: ${({ theme }) => theme.colors.base_label};
-  }
 
   :after {
     content: "${({ isOptional }) => (isOptional ? "Opcional" : "")}";
     font-size: 0.75rem;
     color: ${({ theme }) => theme.colors.base_label};
     font-style: italic;
+  }
+
+  input {
+    border: none;
+    width: 100%;
+    background-color: transparent;
+
+    :focus {
+      outline: none;
+    }
+
+    ::placeholder {
+      color: ${({ theme }) => theme.colors.base_label};
+    }
   }
 `;
