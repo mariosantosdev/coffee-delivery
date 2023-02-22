@@ -86,6 +86,7 @@ export const cartReducer = (state: CartState, action: CartAction) => {
       return { ...state, items: [], total: 0, priceTotalItems: 0 };
 
     case "FINISH_ORDER":
+      localStorage.removeItem("@coffe-delivery:cart_1.0.0");
       return produce(state, (draft) => {
         draft.paymentMethod = action.payload.payments;
         delete action.payload.payments;
