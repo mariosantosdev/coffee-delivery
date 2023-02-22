@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-hot-toast";
+import { useCart } from "~/context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const checkoutSchema = z.object({
   street: z
@@ -38,16 +40,21 @@ const checkoutSchema = z.object({
 export type CheckoutFormData = z.infer<typeof checkoutSchema>;
 
 export function CheckoutPage() {
+  const { finishOrder } = useCart();
+  const redirect = useNavigate();
+
   const form = useForm<CheckoutFormData>({
     resolver: zodResolver(checkoutSchema),
   });
+
   const {
     handleSubmit,
     formState: { errors },
   } = form;
 
   const onSubmit: SubmitHandler<CheckoutFormData> = (data) => {
-    console.log(data);
+    finishOrder(data);
+    return redirect("/checkout/success");
   };
 
   useEffect(() => {
