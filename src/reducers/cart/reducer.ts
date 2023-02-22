@@ -97,7 +97,6 @@ export const cartReducer = (state: CartState, action: CartAction) => {
       localStorage.removeItem("@coffe-delivery:cart_1.0.0");
       return produce(state, (draft) => {
         draft.paymentMethod = action.payload.payments;
-        delete action.payload.payments;
         draft.address = action.payload;
 
         draft.items = [];
