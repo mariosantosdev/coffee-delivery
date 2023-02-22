@@ -1,10 +1,11 @@
 import { Fragment, useEffect, useState } from "react";
+import { coffeesData } from "~/db/coffees";
 import { CoffeCard, Coffe } from "./components/CoffeCard";
 import { HomeHero } from "./components/Hero";
 import { CoffeContainer, GridCoffees } from "./styles";
 
 export function HomePage() {
-  const [coffes, setCoffes] = useState<Coffe[]>([]);
+  const [coffes, setCoffes] = useState<Coffe[]>(coffeesData);
 
   useEffect(() => {
     fetch("/api/coffes")
