@@ -17,12 +17,20 @@ export const TitleCartDetails = styled.h2`
 export const CartDetailsContent = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2.5rem;
+  padding: 1rem;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 44px;
   border-top-right-radius: 44px;
   border-bottom-right-radius: 6px;
   background-color: ${({ theme }) => theme.colors.base_card};
+
+  @media (min-width: 48em) {
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 62em) {
+    padding: 2.5rem;
+  }
 `;
 
 export const CartItemsList = styled.ul`

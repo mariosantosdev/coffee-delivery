@@ -3,9 +3,17 @@ import styled from "styled-components";
 export const BillingDetailsCard = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2.5rem;
+  padding: 1rem;
   background-color: ${({ theme }) => theme.colors.base_card};
   border-radius: 6px;
+
+  @media (min-width: 48em) {
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 62em) {
+    padding: 2.5rem;
+  }
 `;
 
 const CardHeader = styled.div`
@@ -39,15 +47,27 @@ export const CardSubtitle = styled.p`
 
 export const BillingContent = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 0.5rem;
   margin-top: 2rem;
 
   grid-template-areas:
-    "street street number"
-    "neighborhood neighborhood neighborhood"
-    "cep  city state"
-    "complement complement complement";
+    "street"
+    "number"
+    "neighborhood"
+    "cep"
+    "state"
+    "complement"
+    "city";
+
+  @media (min-width: 48em) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "street street number"
+      "neighborhood neighborhood neighborhood"
+      "cep city state"
+      "complement complement complement";
+  }
 `;
 
 type InputProps = {

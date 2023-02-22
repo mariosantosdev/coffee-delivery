@@ -32,16 +32,27 @@ export const CardSubtitle = styled.p`
 export const PaymentDetailsCard = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2.5rem;
+  padding: 1rem;
   background-color: ${({ theme }) => theme.colors.base_card};
   border-radius: 6px;
+
+  @media (min-width: 48em) {
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 62em) {
+    padding: 2.5rem;
+  }
 `;
 
 export const PaymentMethods = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
 
   gap: 1rem;
   margin-top: 2rem;
+
+  @media (min-width: 48em) {
+    flex-direction: row;
+  }
 `;
