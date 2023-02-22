@@ -21,13 +21,13 @@ export const ItemQuantity: React.FC<ItemQuantityProps> = ({
   return (
     <ItemQuantityContainer>
       <ItemQuantityContent>
-        <ItemQuantityButton onClick={onDecrement}>
+        <ItemQuantityButton type="button" onClick={onDecrement}>
           <Minus weight="bold" />
         </ItemQuantityButton>
 
         <ItemQuantityValue>{quantity}</ItemQuantityValue>
 
-        <ItemQuantityButton onClick={onIncrement}>
+        <ItemQuantityButton type="button" onClick={onIncrement}>
           <Plus weight="bold" />
         </ItemQuantityButton>
       </ItemQuantityContent>
