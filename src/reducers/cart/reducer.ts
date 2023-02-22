@@ -1,4 +1,4 @@
-import { EnumCartReducerAction, Item } from "~/reducers/cart/actions";
+import { EnumCartReducerAction, Item, Checkout } from "~/reducers/cart/actions";
 import produce from "immer";
 
 export type CartState = {
@@ -20,6 +20,7 @@ export type CartState = {
     city: string;
     state: string;
   };
+  finished: boolean;
 };
 
 type CartAction = {
@@ -83,6 +84,18 @@ export const cartReducer = (state: CartState, action: CartAction) => {
 
     case "CLEAR_CART":
       return { ...state, items: [], total: 0, priceTotalItems: 0 };
+
+    case "FINISH_ORDER":
+      return produce(state, (draft) => {
+        draft.paymentMethod = action.payload.payments;
+        delete action.payload.payments;
+        draft.address = action.payload;
+
+        draft.items = [];
+        draft.total = 0;
+        draft.priceTotalItems = 0;
+        draft.finished = true;
+      });
 
     default:
       return state;

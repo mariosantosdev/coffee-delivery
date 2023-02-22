@@ -3,8 +3,10 @@ import {
   actionAddItem,
   actionClearCart,
   actionDecreaseItem,
+  actionFinishOrder,
   actionRemoveItem,
   Item,
+  Checkout,
 } from "~/reducers/cart/actions";
 import { cartReducer, CartState } from "~/reducers/cart/reducer";
 
@@ -13,6 +15,7 @@ type CartContextType = {
   addItem: (item: Item) => void;
   removeItem: (item: Item) => void;
   decreaseItem: (item: Item) => void;
+  finishOrder: (checkout: Checkout) => void;
   clearCart: () => void;
   getQuantity: (item: Item) => number;
 };
@@ -26,10 +29,11 @@ interface CartProviderProps {
 export function CartProvider({ children }: CartProviderProps) {
   const [cart, dispatch] = useReducer(cartReducer, {
     items: [],
-    total: 0,
+    total: 3.5,
     priceTotalItems: 0,
     shipping: 3.5,
     paymentMethod: "credit",
+    finished: false,
     address: {
       postalCode: "",
       street: "",
@@ -45,6 +49,8 @@ export function CartProvider({ children }: CartProviderProps) {
   const removeItem = (item: Item) => dispatch(actionRemoveItem(item));
   const decreaseItem = (item: Item) => dispatch(actionDecreaseItem(item));
   const clearCart = () => dispatch(actionClearCart());
+  const finishOrder = (checkout: Checkout) =>
+    dispatch(actionFinishOrder(checkout));
 
   const getQuantity = (item: Item) => {
     const itemInCart = cart.items.find((cartItem) => cartItem.id === item.id);
@@ -59,6 +65,7 @@ export function CartProvider({ children }: CartProviderProps) {
         addItem,
         decreaseItem,
         removeItem,
+        finishOrder,
         clearCart,
         getQuantity,
       }}
