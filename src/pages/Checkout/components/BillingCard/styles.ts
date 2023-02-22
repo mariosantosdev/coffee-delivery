@@ -56,9 +56,9 @@ export const BillingContent = styled.div`
     "number"
     "neighborhood"
     "cep"
+    "city"
     "state"
-    "complement"
-    "city";
+    "complement";
 
   @media (min-width: 48em) {
     grid-template-columns: repeat(3, 1fr);
