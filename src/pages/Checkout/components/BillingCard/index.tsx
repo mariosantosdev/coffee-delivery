@@ -35,15 +35,6 @@ export const BillingCard = () => {
       </BillingHeader>
 
       <BillingContent>
-        <TextInput gridArea="cep" htmlFor="postalCode">
-          <input
-            id="postalCode"
-            type="text"
-            placeholder="CEP"
-            {...register("postalCode")}
-          />
-        </TextInput>
-
         <TextInput gridArea="street" htmlFor="street">
           <input
             id="street"
@@ -62,21 +53,21 @@ export const BillingCard = () => {
           />
         </TextInput>
 
-        <TextInput gridArea="complement" isOptional htmlFor="complement">
-          <input
-            id="complement"
-            type="text"
-            placeholder="Complemento"
-            {...register("complement")}
-          />
-        </TextInput>
-
         <TextInput gridArea="neighborhood" htmlFor="neighborhood">
           <input
             id="neighborhood"
             type="text"
             placeholder="Bairro"
             {...register("neighborhood")}
+          />
+        </TextInput>
+
+        <TextInput gridArea="cep" htmlFor="postalCode">
+          <input
+            id="postalCode"
+            type="text"
+            placeholder="CEP"
+            {...register("postalCode")}
           />
         </TextInput>
 
@@ -95,6 +86,15 @@ export const BillingCard = () => {
             type="text"
             placeholder="UF"
             {...register("state")}
+          />
+        </TextInput>
+
+        <TextInput gridArea="complement" isOptional htmlFor="complement">
+          <input
+            id="complement"
+            type="text"
+            placeholder="Complemento"
+            {...register("complement")}
           />
         </TextInput>
       </BillingContent>
