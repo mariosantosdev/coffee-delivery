@@ -43,7 +43,6 @@ export const LocationButton = styled(BaseButton)`
 
 type CartButtonProps = {
   items?: number;
-  hasItems?: boolean;
 };
 
 export const CartButton = styled(BaseButton)<CartButtonProps>`
@@ -53,7 +52,7 @@ export const CartButton = styled(BaseButton)<CartButtonProps>`
 
   ::after {
     content: "${({ items }) => items}";
-    display: ${({ hasItems }) => (hasItems ? "flex" : "none")};
+    display: ${({ items }) => (items && items > 0 ? "flex" : "none")};
     justify-content: center;
     align-items: center;
 

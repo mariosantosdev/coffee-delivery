@@ -25,12 +25,7 @@ export const Header = () => {
           <MapPin size={22} weight="fill" />
           Oliveira, MG
         </LocationButton>
-        <CartButton
-          as={NavLink}
-          to="/checkout"
-          items={cart.items.length}
-          hasItems={cart.items.length !== 0}
-        >
+        <CartButton as={NavLink} to="/checkout" items={cart.items.length}>
           <ShoppingCart size={22} weight="fill" />
         </CartButton>
       </HeaderNav>
